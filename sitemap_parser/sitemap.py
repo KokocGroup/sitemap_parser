@@ -56,7 +56,7 @@ class Sitemap(object):
     @classmethod
     def download_sitemap(cls, sitemap_url):
         try:
-            r = requests.get(sitemap_url)
+            r = requests.get(sitemap_url, timeout=30)
             r.raise_for_status()
         except requests.HTTPError as e:
             raise cls.DownloadError("Sitemap {} return {} status code".format(sitemap_url, e.response.status_code))
