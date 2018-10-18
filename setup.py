@@ -4,10 +4,10 @@ from __future__ import with_statement, unicode_literals
 
 from setuptools import find_packages, setup
 
-VERSION = "0.0.3"
+VERSION = "0.0.2"
 
 setup(
-    name='grafana-metrics',
+    name='sitemap_parser',
     description="",
     version=VERSION,
     url='https://github.com/KokocGroup/sitemap_parser',
