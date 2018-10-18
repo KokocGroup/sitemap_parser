@@ -43,4 +43,6 @@ class SitemapLoader(object):
         if not sitemaps:
             raise cls.RobotsParseError("robots.txt from {} sitemaps not found".format(robots_url))
 
-        return [Sitemap.from_url(url.strip()) for url in sitemaps]
+        sitemaps = set([s.strip() for s in sitemaps])
+
+        return [Sitemap.from_url(url) for url in sitemaps]

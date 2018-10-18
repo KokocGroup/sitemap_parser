@@ -33,7 +33,9 @@ class Sitemap(object):
 
     def __init__(self, sitemap_tree=None, sitemap_url=None):
         self._sitemap_tree = sitemap_tree
-        self._sitemap_url = sitemap_url
+        self._sitemap_url = None
+        if sitemap_url:
+            self._sitemap_url = sitemap_url.strip()
 
     def __unicode__(self):
         return self._sitemap_url
@@ -95,10 +97,13 @@ class Sitemap(object):
 
     @property
     def links(self):
-        return [urllib.unquote(url).decode('utf-8') for url in self._sitemap.xpath("/s:urlset/s:url/s:loc/text()", namespaces={'s': self._ns})]
+        res = set()
+        for url in self._sitemap.xpath("/s:urlset/s:url/s:loc/text()", namespaces={'s': self._ns}):
+            res.add(urllib.unquote(url).decode('utf-8'))
+        return res
 
     @property
     def sitemaps(self):
-        sitemaps = self._sitemap.xpath("/s:sitemapindex/s:sitemap/s:loc/text()", namespaces={'s': self._ns})
+        sitemaps = set([sitemap.strip() for sitemap in self._sitemap.xpath("/s:sitemapindex/s:sitemap/s:loc/text()", namespaces={'s': self._ns})])
 
         return [self.__class__(sitemap_url=url) for url in sitemaps]
