@@ -4,7 +4,7 @@ from __future__ import with_statement, unicode_literals
 
 from setuptools import find_packages, setup
 
-VERSION = "0.0.2"
+VERSION = "0.0.3"
 
 setup(
     name='sitemap_parser',
@@ -15,7 +15,7 @@ setup(
     author_email='falgore88@gmail.com',
     packages=find_packages(),
     install_requires=[
-        'beautifulsoup4==4.6.3'
+        'beautifulsoup4==4.6.3',
         'lxml==4.2.5'
     ]
 )

@@ -1,7 +1,7 @@
 # coding: utf-8
 from __future__ import unicode_literals
 
-from fabric.api import local, task, quiet
+from fabric.api import task, local, quiet
 
 
 def change_version(change):
