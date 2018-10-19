@@ -103,8 +103,8 @@ class Sitemap(object):
     def links(self):
         res = set()
         for url in self._sitemap.xpath("/s:urlset/s:url/s:loc/text()", namespaces={'s': self._ns}):
-            res.add(urllib.unquote(url).decode('utf-8'))
-        return res
+            res.add(url)
+        return list(res)
 
     @property
     def sitemaps(self):
