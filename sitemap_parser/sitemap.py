@@ -44,6 +44,10 @@ class Sitemap(object):
         return "<Sitemap: {}>".format(self._sitemap_url)
 
     @property
+    def url(self):
+        return self._sitemap_url
+
+    @property
     def _sitemap(self):
         if self._sitemap_tree is not None:
             return self._sitemap_tree
