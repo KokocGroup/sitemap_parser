@@ -16,6 +16,6 @@ setup(
     packages=find_packages(),
     install_requires=[
         'beautifulsoup4==4.6.3',
-        'lxml==4.2.5'
+        'lxml==4.6.3'
     ]
 )
